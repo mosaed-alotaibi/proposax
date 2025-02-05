@@ -16,13 +16,13 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/files")
 @CrossOrigin(origins = "*")
-public class FileUploadController {
+public class PdfUploadController {
 
     @Autowired
     private ProposalStorageService proposalStorageService;
 
     @PostMapping("/upload")
-    public ResponseEntity<?> uploadFiles(@RequestParam("files") MultipartFile[] files) {
+    public ResponseEntity<?> uploadPdfFiles(@RequestParam("files") MultipartFile[] files) {
         List<String> fileNames = new ArrayList<>();
         for (MultipartFile file : files) {
             String fileName = proposalStorageService.storeFile(file);
